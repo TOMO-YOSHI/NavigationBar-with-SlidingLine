@@ -12,7 +12,7 @@ Therefore, *I did not use any third-party libraries* to implement the feature of
 
 ## Functionality
 ### How to implement the sliding bar feature
-The main feature of this project is the sliding bar which indicates a selected item. To implement the continuous motion, styles of the sliding bar are dynamically defined by JavaScript, not only by CSS.
+The main feature of this project is the sliding bar which indicates a selected item. To implement the continuous behavior, styles of the sliding bar are dynamically defined by JavaScript, not only by CSS.
 
     const alignSlideBar = (slideLineElement, targetElement) => {
         slideLineElement.style.width = window.getComputedStyle(targetElement).width;

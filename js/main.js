@@ -8,7 +8,13 @@ const currentTimeDiv = document.getElementById("current_time");
 const timeDisplayCard = document.querySelector(".time_display_card");
 const pageMain = document.querySelector("main");
 const photoCopyRightP = document.querySelector(".photo_copy_right");
+
+// *********************************
+// Declare variables ***************
+// *********************************
 let clockInterval = null;
+let flipTimeout = null;
+// Time gaps in UTC
 const timeGaps = {
     cupertino: -7,
     new_york_city: -4,
@@ -43,7 +49,7 @@ const getSelectedCity = (elementList) => {
     return selectedCity;
 }
 
-const getTime = (gap) => {
+const getTime = (gap = 0) => {
     let utcHours = new Date().getUTCHours()
     let utcMinutes = new Date().getUTCMinutes()
     let utcSeconds = new Date().getUTCSeconds()
@@ -57,17 +63,18 @@ const getTime = (gap) => {
     utcMinutes = utcMinutes < 10 ? '0' + utcMinutes : utcMinutes;
     utcSeconds = utcSeconds < 10 ? '0' + utcSeconds : utcSeconds;
 
-    currentTimeDiv.textContent = `${utcHours}:${utcMinutes}:${utcSeconds}`
+    return `${utcHours}:${utcMinutes}:${utcSeconds}`;
 }
 
 const initiateClock = (elementList) => {
-    // First, clear previous interval
+    // clear previous interval
     clearInterval(clockInterval);
 
     const selectedCityName = getSelectedCity(elementList).toLowerCase().replaceAll(' ', '_');
 
     clockInterval = setInterval(() => {
-        getTime(timeGaps[selectedCityName])
+        const currentTime = getTime(timeGaps[selectedCityName])
+        currentTimeDiv.textContent = currentTime
     }, 1000)
 }
 
@@ -83,6 +90,9 @@ const setBackgroundImage = (elementList) => {
     photoCopyRightP.innerHTML = images[selectedCityName].copyRight
 }
 
+// *********************************
+// Main init function **************
+// *********************************
 const init = () => {
     // Initiate clock and background with default settings("cupertino")
     initiateClock(listItems);
@@ -90,7 +100,7 @@ const init = () => {
     setBackgroundImage(listItems);
     
     // *********************************
-    // ADD Style and Click event to  ***
+    // ADD click event to  *************
     // listItem element ****************
     // *********************************
     listItems.forEach((listItem) => {
@@ -102,6 +112,10 @@ const init = () => {
         // Add click event to remove and add "active" class
         // and change the style of the slide line
         listItem.addEventListener("click", function () {
+            // clear previous timeout and remove "flip" class from the card element
+            clearTimeout(flipTimeout)
+            timeDisplayCard.classList.remove("flip")
+
             // Add "active" class to clicked list item and align the sliding line 
             if (!this.classList.contains("active")) {
                 removeClassFromAll(listItems, "active");
@@ -114,9 +128,11 @@ const init = () => {
 
             cityNameH1.textContent = getSelectedCity(listItems);
 
-            // Add "flip" calss to the card element to give animation 
+            // Add "flip" class to the card element to give animation
             timeDisplayCard.classList.add("flip")
-            setTimeout(()=>{
+
+            // Remove "flip" class from the card element after the flip animation
+            flipTimeout = setTimeout(()=>{
                 timeDisplayCard.classList.remove("flip")
             }, 1800)
 
