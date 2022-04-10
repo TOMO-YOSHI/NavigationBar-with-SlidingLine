@@ -26,7 +26,7 @@ Styles of the sliding bar other than the width and left position are defined in 
     .nav_slide_line{
         position: absolute;
         bottom: 0;
-        height: 1.5px;
+        height: 1.8px;
         background-color:#000000;
         -webkit-transition: all .5s ease;
         transition: all .5s ease;

@@ -1,7 +1,7 @@
 // *********************************
 // Get HTML elements ***************
 // *********************************
-const listItems = document.querySelectorAll(".global_nav ul li");
+const listItems = document.querySelectorAll("#global_nav ul li");
 const navSlideLine = document.querySelector(".nav_slide_line");
 const cityNameH1 = document.getElementById("city_name");
 const currentTimeDiv = document.getElementById("current_time");

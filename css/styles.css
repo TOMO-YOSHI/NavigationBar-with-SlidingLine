@@ -13,41 +13,39 @@ a {
 /* Header */
 /* **************** */
 
-.global_nav {
+#global_nav {
     position: relative;
     padding-top: 32px;
 }
 
-.global_nav ul {
+#global_nav ul {
     list-style-type: none;
     margin: 0 32px;
     padding-left: 0;
-
     display: flex;
     justify-content: space-around;
-
     border-bottom: 1px solid #aaaaaa;
 }
 
-.global_nav ul li {
+#global_nav ul li {
     padding-bottom: 16px;
     letter-spacing: 0.5px;
     color: #aaaaaa;
     cursor: pointer;
 }
 
-.global_nav ul li:hover {
+#global_nav ul li:hover {
     color: #4682B4;
 }
 
-.global_nav ul li.active {
+#global_nav ul li.active {
     color: #000000;
 }
 
 .nav_slide_line{
     position: absolute;
     bottom: 0;
-    height: 1.5px;
+    height: 1.8px;
     background-color:#000000;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
