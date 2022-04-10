@@ -28,8 +28,8 @@ Styles of the sliding bar other than the width and left position are defined in 
         bottom: 0;
         height: 1.5px;
         background-color:#000000;
-        -webkit-transition: all .3s ease;
-        transition: all .3s ease;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
     }
 
 ## Design
