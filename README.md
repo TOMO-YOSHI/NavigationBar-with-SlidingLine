@@ -52,7 +52,7 @@ A current time needs to be updated according to the selected city. And the updat
 ## Resources
 All photos used in this project are found on [Unsplash](https://unsplash.com/).
 
-I really appreciate talented photographers.
+I really appreciate these talented photographers.
 
 * Photographers
     * [Carles Rabada](https://unsplash.com/@carlesrgm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
