@@ -4,22 +4,24 @@ Thanks for visiting this project page.
 
 This project is created to show my skills in CSS and vanilla JavaScript.
 
-Therefore, *I did not use any third party libraries* to implement the feature of the navigation bar.
+Therefore, *I did not use any third-party libraries* to implement the feature of the navigation bar.
 
-![how the sliding bar works](/nav-sliding.gif)
+[Visit website](https://tomo-yoshi.github.io/NavigationBar-with-SlidingLine/)
+
+![how the sliding bar works](assets/readme/nav-sliding.gif)
 
 ## Functionality
 ### How to implement the sliding bar feature
-The main feature of this project is the sliding bar which indicates a selected item. To implement the continuos motion, styles of the sliding bar is dynamically defined by JavaScript, not only by CSS.
+The main feature of this project is the sliding bar which indicates a selected item. To implement the continuous motion, styles of the sliding bar are dynamically defined by JavaScript, not only by CSS.
 
     const alignSlideBar = (slideLineElement, targetElement) => {
         slideLineElement.style.width = window.getComputedStyle(targetElement).width;
         slideLineElement.style.left = targetElement.getBoundingClientRect().left + "px";
     }
 
-The width and left position of the sliding bar are aligned to a selected item by above function.
+The width and left position of the sliding bar is aligned to a selected item by the above function.
 
-Styles of the sliding bar other than width and left position are defined in a css file.
+Styles of the sliding bar other than the width and left position are defined in a CSS file.
 
     .nav_slide_line{
         position: absolute;
@@ -32,19 +34,19 @@ Styles of the sliding bar other than width and left position are defined in a cs
 
 ## Design
 ### Concept
-Nowadays, it becomes difficult to travel abroad because of the pandemic. However, a lot of people are still eager to go across borders and see beautiful scenery. Therefore, my web application displays a photo of a selected city as a background image to entertain visitors. I would like viewers to enjoy feeling like traveling around the famous cities.
+Nowadays, it becomes difficult to travel abroad because of the pandemic. However, a lot of people are still eager to go across borders and see beautiful scenery. Therefore, my website displays a photo of a selected city as a background image to entertain visitors. I would like viewers to enjoy feeling like traveling around the famous cities.
 
 ### Clock
-![clock design](/clock_international_mail.png)
+![clock design](assets/readme/clock_international_mail.png)
 
-I have chosen an international mail as a design for the clock. Users can feel like receiving an international mail by selecting a new city. The design makes the mundane behavior of looking at a clock a little more enjoyable.
+I have chosen an international mail as a design for the clock. Users can feel like receiving an international mail by selecting a new city. In addition, the design makes the mundane behavior of looking at a watch a little more enjoyable.
 
 ### Visual Effect
 #### Why the card of the clock is spinning?
 
 I have applied the spinning animation not only for fun but also for technical reasons.
 
-A current time needs to be updated according to the selected city. And the update process takes a few hundred milliseconds. That is why I adopted the spinning animation instead of an ordinary "Loading" message.
+A current time needs to be updated according to the selected city. And the update process takes a few hundred milliseconds. Therefore, I adopted the spinning animation instead of an ordinary "Loading" message.
 
 
 ## Resources
