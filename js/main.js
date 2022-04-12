@@ -149,6 +149,15 @@ const init = () => {
             timeDisplayCard.classList.remove("tilt")
             timeDisplayCard.classList.add("bottom_shadow")
         })
+
+        // Listen to window resize to align the sliding bar
+        window.addEventListener("resize", () => {
+            listItems.forEach((listItem)=>{
+                if (listItem.classList.contains("active")) {
+                    alignSlideBar(navSlideLine, listItem)
+                }
+            })
+        });
     })
 };
 
