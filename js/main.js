@@ -1,7 +1,9 @@
 // *********************************
 // Get HTML elements ***************
 // *********************************
-const listItems = document.querySelectorAll("#global_nav ul li");
+const globalNavUl = document.querySelector("#global_nav ul");
+// Reassign the dom element to listItems after rendering list items into the global nav bar by document.querySelectorAll("#global_nav ul li")
+let listItems;
 const navSlideLine = document.querySelector(".nav_slide_line");
 const cityNameH1 = document.getElementById("city_name");
 const currentTimeDiv = document.getElementById("current_time");
@@ -93,7 +95,19 @@ const setBackgroundImage = (elementList) => {
 // *********************************
 // Main init function **************
 // *********************************
-const init = () => {
+const init = async () => {
+    // Render list item elements generated from navigation.json file
+    await fetch("navigation.json")
+        .then(response => response.json())
+        .then(json => {
+            json.cities.forEach((city, i) => {
+                let newListItem = i === 0 ? `<li class="active">${city.label}</li>` : `<li>${city.label}</li>`;
+                globalNavUl.innerHTML += newListItem;
+            })
+            listItems = document.querySelectorAll("#global_nav ul li");
+        });
+
+
     // Initiate clock and background with default settings("cupertino")
     initiateClock(listItems);
     cityNameH1.textContent = getSelectedCity(listItems);
